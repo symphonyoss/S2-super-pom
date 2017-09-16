@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!--
+		~
+		~ Copyright 2017 Symphony Communication Services, LLC.
+		~
+		~ Licensed to The Symphony Software Foundation (SSF) under one
+		~ or more contributor license agreements.  See the NOTICE file
+		~ distributed with this work for additional information
+		~ regarding copyright ownership.  The ASF licenses this file
+		~ to you under the Apache License, Version 2.0 (the
+		~ "License"); you may not use this file except in compliance
+		~ with the License.  You may obtain a copy of the License at
+		~
+		~   http://www.apache.org/licenses/LICENSE-2.0
+		~
+		~ Unless required by applicable law or agreed to in writing,
+		~ software distributed under the License is distributed on an
+		~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+		~ KIND, either express or implied.  See the License for the
+		~ specific language governing permissions and limitations
+		~ under the License.
+	
+
+			This is the ultimate super-pom for all open source S2 code.
+  			
+  			It's main purpose is to provide version numbers for standard external
+  			dependencies like Protobuf. It is the super-pom for both S2 code
+  			(which is Java8) and code destined to be deployed to SBE (which is
+  			currently still Java7), this pom therefore SHOULD NOT set java source
+  			or target versions, add plugins to the build etc.
+   -->
+
+	<modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+		<groupId>org.symphonyoss</groupId>
+		<artifactId>symphonyoss</artifactId>
+		<version>6</version>
+	</parent>
+	
+  <groupId>org.symphonyoss.s2</groupId>
+	<artifactId>S2-super-pom</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<url>https://github.com/SymphonyOSF/S2-super-pom</url>
+	<description>Symphony 2.0 Common Libraries</description>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/SymphonyOSF/S2-super-pom.git</connection>
+		<developerConnection>scm:git:git@github.com:SymphonyOSF/S2-super-pom.git</developerConnection>
+		<url>https://github.com/SymphonyOSF/S2-super-pom</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>bruceskingle</id>
+			<name>Bruce Skingle</name>
+			<email>bruce.skingle@symphony.com</email>
+			<url>http://github.com/bruceskingle</url>
+			<organization>Symphony Communication Services LLC</organization>
+			<organizationUrl>http://symphony.com</organizationUrl>
+			<roles>
+				<role>Chief Architect</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<properties>
+		<javax.servlet.version>3.1.0</javax.servlet.version>
+
+		<protobuf.version>3.2.0</protobuf.version>
+		<grpc.version>1.5.0</grpc.version>
+
+		<jetty.version>9.3.11.v20160721</jetty.version>
+		<jackson.version>2.8.7</jackson.version>
+
+		<commons.codec.version>1.10</commons.codec.version>
+
+		<slf4j.version>1.7.12</slf4j.version>
+		<log4j.version>2.5</log4j.version>
+
+		<bcpkix.version>1.51</bcpkix.version>
+		<bcprov.version>1.51</bcprov.version>
+
+		<junit.version>4.12</junit.version>
+
+		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+
+
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>symphony</id>
+			<name>symphony releases</name>
+			<url>https://repo.symphony.com/artifactory/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<url>https://repo.symphony.com/artifactory/libs-snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>symphony</id>
+			<name>plugins-release</name>
+			<url>https://repo.symphony.com/artifactory/plugins-release</url>
+		</pluginRepository>
+		<pluginRepository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>plugins-snapshot</name>
+			<url>https://repo.symphony.com/artifactory/plugins-snapshot</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>3.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-invoker-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.10</version>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.symphony.s2.protogen
+										</groupId>
+										<artifactId>
+											protogen-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.0.0-SNAPSHOT,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate-sources
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>${protobuf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-protobuf</artifactId>
+				<version>${grpc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-stub</artifactId>
+				<version>${grpc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-netty</artifactId>
+				<version>${grpc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${javax.servlet.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-plus</artifactId>
+				<version>${jetty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-server</artifactId>
+				<version>${jetty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-servlet</artifactId>
+				<version>${jetty.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons.codec.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-jul</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcpkix-jdk15on</artifactId>
+				<version>${bcpkix.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bcprov.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Adding a dependency here makes it a dependency for *everything* Only 
+			truly general things should be added at this level. -->
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+	</dependencies>
+</project>

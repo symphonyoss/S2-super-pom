@@ -1,0 +1,21 @@
+Symphony REST Tools
+Copyright 2017 Symphony Communication Services, LLC.
+http://symphony.com/
+
+========================================================================
+Apache License, Version 2.0
+========================================================================
+
+The following components are provided under the Apache License 2.0. See project link for details.
+
+     JCurl 								(org.symphonyoss.symphony:jcurl)							 - https://github.com/symphonyoss/JCurl
+     JSR305 Annotations 		(com.google.code.findbugs:jsr305)							 - https://code.google.com/p/jsr-305/
+
+
+========================================================================
+Eclipse Public License 1.0
+========================================================================
+
+The following components are provided under the Eclipse Public License 1.0. See project link for details.
+
+     Junit (junit.junit:4.12) - http://junit.org/junit4
