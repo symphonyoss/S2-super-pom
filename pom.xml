@@ -23,12 +23,12 @@
 	
 
 			This is the ultimate super-pom for all open source S2 code.
-  			
-  			It's main purpose is to provide version numbers for standard external
-  			dependencies like Protobuf. It is the super-pom for both S2 code
-  			(which is Java8) and code destined to be deployed to SBE (which is
-  			currently still Java7), this pom therefore SHOULD NOT set java source
-  			or target versions, add plugins to the build etc.
+					
+			It's main purpose is to provide version numbers for standard external
+			dependencies like Protobuf. It is the super-pom for both S2 code
+			(which is Java8) and code destined to be deployed to SBE (which is
+			currently still Java7), this pom therefore SHOULD NOT set java source
+			or target versions, add plugins to the build etc.
    -->
 
 	<modelVersion>4.0.0</modelVersion>
