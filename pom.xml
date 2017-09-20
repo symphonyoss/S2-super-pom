@@ -36,16 +36,16 @@
   <parent>
 		<groupId>org.symphonyoss</groupId>
 		<artifactId>symphonyoss</artifactId>
-		<version>6</version>
+		<version>8-SNAPSHOT</version>
 	</parent>
 	
   <groupId>org.symphonyoss.s2</groupId>
 	<artifactId>S2-super-pom</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<url>https://github.com/SymphonyOSF/S2-super-pom</url>
-	<description>Symphony 2.0 Common Libraries</description>
+	<description>Symphony 2.0 Super POM</description>
 
 	<licenses>
 		<license>
@@ -114,6 +114,16 @@
 			<releases>
 				<enabled>false</enabled>
 			</releases>
+		</repository>
+		<repository>
+		    <id>sonatype-oss-public</id>
+		    <url>https://oss.sonatype.org/content/groups/public/</url>
+		    <releases>
+		        <enabled>true</enabled>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		    </snapshots>
 		</repository>
 	</repositories>
 	<pluginRepositories>
