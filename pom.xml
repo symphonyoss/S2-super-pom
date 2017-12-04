@@ -100,6 +100,8 @@
 		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
 
 		<tycho.version>1.0.0</tycho.version>
+		
+		<checker.framework.version>2.3.0</checker.framework.version>
 	</properties>
 
 	<repositories>
@@ -371,6 +373,29 @@
 				<version>${bcprov.version}</version>
 			</dependency>
 
+			<!-- Annotations from the Checker Framework: nullness, interning, locking, -->
+			<dependency>
+				<groupId>org.checkerframework</groupId>
+				<artifactId>checker-qual</artifactId>
+				<version>${checker.framework.version}</version>
+			</dependency>
+			<!--  Use checker-qual7 if targeting Java 7 -->
+			<dependency>
+        <groupId>org.checkerframework</groupId>
+        <artifactId>checker-qual7</artifactId>
+        <version>${checker.framework.version}</version>
+      </dependency>
+			<dependency>
+				<groupId>org.checkerframework</groupId>
+				<artifactId>checker</artifactId>
+				<version>${checker.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.checkerframework</groupId>
+				<artifactId>jdk8</artifactId>
+				<version>${checker.framework.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -389,4 +414,73 @@
 			<version>3.0.2</version>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+	 <profile>
+	   <id>checker</id>
+	   
+	   <properties>
+			  <!-- These properties will be set by the Maven Dependency plugin -->
+			  <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+			  <!-- Uncomment to use the Type Annotations compiler. -->
+			  <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
+		 </properties>
+		 
+		 <build>
+		  <plugins>
+		    <plugin>
+			    <!-- This plugin will set properties values using dependency information -->
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-dependency-plugin</artifactId>
+			    <executions>
+			      <execution>
+			        <goals>
+			          <goal>properties</goal>
+			        </goals>
+			      </execution>
+			    </executions>
+			  </plugin>
+			  <plugin>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <configuration>
+			      <source>1.8</source>
+			      <target>1.8</target>
+			      <compilerArguments>
+			        <Xmaxerrs>10000</Xmaxerrs>
+			        <Xmaxwarns>10000</Xmaxwarns>
+			      </compilerArguments>
+			      <annotationProcessors>
+			        <!-- Add all the checkers you want to enable here -->
+			        <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+			      </annotationProcessors>
+			      <compilerArgs>
+			        <arg>-AprintErrorStack</arg>
+			        <!-- location of the annotated JDK, which comes from a Maven dependency -->
+			        <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
+			        <!-- Uncomment the following line to use the type annotations compiler. -->
+			        <!-- <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> -->
+			        <!-- Uncomment the following line to turn type-checking warnings into errors. -->
+			        <!-- <arg>-Awarns</arg> -->
+			      </compilerArgs>
+			    </configuration>
+			  </plugin>
+		  </plugins>
+		 </build>
+
+	   <dependencies>
+		   <dependency>
+	        <groupId>org.checkerframework</groupId>
+	        <artifactId>checker-qual</artifactId>
+	      </dependency>
+	      <dependency>
+	        <groupId>org.checkerframework</groupId>
+	        <artifactId>checker</artifactId>
+	      </dependency>
+	      <dependency>
+	        <groupId>org.checkerframework</groupId>
+	        <artifactId>jdk8</artifactId>
+	      </dependency>
+	   </dependencies>
+	 </profile>
+	</profiles>
 </project>
