@@ -396,12 +396,7 @@
 				<version>${checker.framework.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 
@@ -413,6 +408,12 @@
 			<artifactId>jsr305</artifactId>
 			<version>3.0.2</version>
 		</dependency>
+		<dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
 	</dependencies>
 	
 	<profiles>
