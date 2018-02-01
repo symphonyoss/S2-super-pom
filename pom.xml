@@ -78,8 +78,8 @@
 	<properties>
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 
-		<protobuf.version>3.2.0</protobuf.version>
-		<grpc.version>1.5.0</grpc.version>
+		<protobuf.version>3.5.1</protobuf.version>
+		<grpc.version>1.7.0</grpc.version>
 		
     <guava.version>23.5-jre</guava.version>
 
@@ -99,7 +99,7 @@
 		<junit.version>4.12</junit.version>
 
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
-		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
 
 		<tycho.version>1.0.0</tycho.version>
 		
