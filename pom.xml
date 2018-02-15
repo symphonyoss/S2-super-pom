@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <!--
 		~
-		~ Copyright 2017 Symphony Communication Services, LLC.
+		~ Copyright 2017-2018 Symphony Communication Services, LLC.
 		~
 		~ Licensed to The Symphony Software Foundation (SSF) under one
 		~ or more contributor license agreements.  See the NOTICE file
@@ -55,9 +55,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/SymphonyOSF/S2-super-pom.git</connection>
-		<developerConnection>scm:git:git@github.com:SymphonyOSF/S2-super-pom.git</developerConnection>
-		<url>https://github.com/SymphonyOSF/S2-super-pom</url>
+		<connection>scm:git:git://github.com/symphonyoss/S2-super-pom.git</connection>
+		<developerConnection>scm:git:git@symphonyoss/S2-super-pom.git</developerConnection>
+		<url>https://github.com/symphonyoss/S2-super-pom</url>
 	  <tag>HEAD</tag>
   </scm>
 
@@ -86,7 +86,7 @@
 		<jetty.version>9.4.8.v20171121</jetty.version>
 		<mortbay.alpm.version>8.1.11.v20170118</mortbay.alpm.version>
 		
-		<jackson.version>2.8.7</jackson.version>
+		<jackson.version>2.9.4</jackson.version>
 
 		<commons.codec.version>1.10</commons.codec.version>
 
@@ -106,7 +106,7 @@
 		<checker.framework.version>2.3.0</checker.framework.version>
 	</properties>
 
-	<repositories>
+<!-- 	<repositories>
 		<repository>
 			<id>symphony</id>
 			<name>symphony releases</name>
@@ -148,7 +148,7 @@
 			<name>plugins-snapshot</name>
 			<url>https://repo.symphony.com/artifactory/plugins-snapshot</url>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories> -->
 
 	<build>
 		<pluginManagement>
@@ -170,7 +170,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-plugin-plugin</artifactId>
-					<version>3.2</version>
+					<version>3.5</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -188,6 +188,13 @@
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>1.10</version>
 				</plugin>
+				
+				<plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>0.23.0</version>
+        </plugin>
+        
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -445,7 +452,6 @@
 		<dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
         <scope>test</scope>
       </dependency>
 	</dependencies>
