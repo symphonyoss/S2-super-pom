@@ -41,7 +41,7 @@
 	
   <groupId>org.symphonyoss.s2</groupId>
 	<artifactId>S2-super-pom</artifactId>
-	<version>0.1.5</version>
+	<version>0.1.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<url>https://github.com/SymphonyOSF/S2-super-pom</url>
