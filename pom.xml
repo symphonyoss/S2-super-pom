@@ -44,7 +44,7 @@
 	<version>0.1.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
-	<url>https://github.com/SymphonyOSF/S2-super-pom</url>
+	<url>https://github.com/symphonyoss/S2-super-pom</url>
 	<description>Symphony 2.0 Super POM</description>
 
 	<licenses>
@@ -56,9 +56,9 @@
 
 	<scm>
 		<connection>scm:git:git://github.com/symphonyoss/S2-super-pom.git</connection>
-		<developerConnection>scm:git:git@symphonyoss/S2-super-pom.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:symphonyoss/S2-super-pom.git</developerConnection>
 		<url>https://github.com/symphonyoss/S2-super-pom</url>
-	  <tag>S2-super-pom-0.1.5</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<developers>
