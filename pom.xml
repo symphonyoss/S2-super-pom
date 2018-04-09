@@ -90,8 +90,8 @@
 
 		<commons.codec.version>1.10</commons.codec.version>
 
-		<slf4j.version>1.7.12</slf4j.version>
-		<log4j.version>2.5</log4j.version>
+		<log4j.version>2.11.0</log4j.version>
+    <slf4j.version>1.7.25</slf4j.version>
 
 		<bcpkix.version>1.51</bcpkix.version>
 		<bcprov.version>1.51</bcprov.version>
@@ -105,50 +105,6 @@
 		
 		<checker.framework.version>2.3.0</checker.framework.version>
 	</properties>
-
-<!-- 	<repositories>
-		<repository>
-			<id>symphony</id>
-			<name>symphony releases</name>
-			<url>https://repo.symphony.com/artifactory/libs-release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>snapshots</id>
-			<url>https://repo.symphony.com/artifactory/libs-snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-		<repository>
-		    <id>sonatype-oss-public</id>
-		    <url>https://oss.sonatype.org/content/groups/public/</url>
-		    <releases>
-		        <enabled>true</enabled>
-		    </releases>
-		    <snapshots>
-		        <enabled>true</enabled>
-		    </snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>symphony</id>
-			<name>plugins-release</name>
-			<url>https://repo.symphony.com/artifactory/plugins-release</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>https://repo.symphony.com/artifactory/plugins-snapshot</url>
-		</pluginRepository>
-	</pluginRepositories> -->
 
 	<build>
 		<pluginManagement>
@@ -375,27 +331,38 @@
 				<artifactId>log4j-api</artifactId>
 				<version>${log4j.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-core</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-web</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-jul</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-1.2-api</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
 
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-slf4j-impl</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-jul</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
