@@ -297,6 +297,16 @@
 	      <artifactId>jetty-servlets</artifactId>
 	      <version>${jetty.version}</version>
 	    </dependency>
+		  <dependency>
+	      <groupId>org.eclipse.jetty</groupId>
+	      <artifactId>jetty-http</artifactId>
+        <version>${jetty.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.eclipse.jetty</groupId>
+	      <artifactId>jetty-util</artifactId>
+        <version>${jetty.version}</version>
+	    </dependency>
 	    <dependency>
 	      <groupId>org.mortbay.jetty.alpn</groupId>
 	      <artifactId>alpn-boot</artifactId>
@@ -434,10 +444,15 @@
 				<artifactId>aws-java-sdk-sts</artifactId>
 				<version>1.11.327</version>
 			</dependency>
-			<dependency>
+      <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-secretsmanager</artifactId>
           <version>1.11.328</version>
+      </dependency>
+      <dependency>
+          <groupId>com.amazonaws</groupId>
+          <artifactId>aws-java-sdk-sqs</artifactId>
+          <version>1.11.327</version>
       </dependency>
 		</dependencies>
 	</dependencyManagement>
