@@ -78,6 +78,8 @@
 	<properties>
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 
+    <!--  latest is 327 as of 2018-08-21 - getting NoSuchField errors -->
+    <aws.java.sdk.version>1.11.327</aws.java.sdk.version>
 		<protobuf.version>3.5.1</protobuf.version>
 		<grpc.version>1.7.0</grpc.version>
 		
@@ -433,33 +435,54 @@
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-java-sdk-s3</artifactId>
-	      <version>1.11.326</version>
+	      <version>${aws.java.sdk.version}</version>
 	   </dependency>
 	   <dependency>
 	    <groupId>com.amazonaws</groupId>
 	    <artifactId>aws-java-sdk-sns</artifactId>
-	    <version>1.11.326</version>
+	    <version>${aws.java.sdk.version}</version>
 	   </dependency>
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-java-sdk-iam</artifactId>
-	      <version>1.11.327</version>
+	      <version>${aws.java.sdk.version}</version>
 	    </dependency>
 	    <dependency>
 				<groupId>com.amazonaws</groupId>
 				<artifactId>aws-java-sdk-sts</artifactId>
-				<version>1.11.327</version>
+				<version>${aws.java.sdk.version}</version>
 			</dependency>
       <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-secretsmanager</artifactId>
-          <version>1.11.328</version>
+          <version>${aws.java.sdk.version}</version>
       </dependency>
       <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-sqs</artifactId>
-          <version>1.11.327</version>
+          <version>${aws.java.sdk.version}</version>
       </dependency>
+      
+	    <dependency>
+	      <groupId>com.amazonaws</groupId>
+	      <artifactId>aws-java-sdk-elasticloadbalancingv2</artifactId>
+          <version>${aws.java.sdk.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.amazonaws</groupId>
+	      <artifactId>aws-java-sdk-route53</artifactId>
+        <version>${aws.java.sdk.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.amazonaws</groupId>
+	      <artifactId>aws-java-sdk-ecs</artifactId>
+        <version>${aws.java.sdk.version}</version>
+	    </dependency>
+		  <dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-logs</artifactId>
+        <version>${aws.java.sdk.version}</version>
+		  </dependency>
 		</dependencies>
 	</dependencyManagement>
 
