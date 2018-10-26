@@ -79,7 +79,7 @@
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 
     <!--  latest is 327 as of 2018-08-21 - getting NoSuchField errors -->
-    <aws.java.sdk.version>1.11.327</aws.java.sdk.version>
+    <aws.java.sdk.version>1.11.435</aws.java.sdk.version>
 		<protobuf.version>3.5.1</protobuf.version>
 		<grpc.version>1.7.0</grpc.version>
 		
@@ -498,6 +498,16 @@
         <artifactId>aws-java-sdk-applicationautoscaling</artifactId>
         <version>${aws.java.sdk.version}</version>
       </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-cloudwatch</artifactId>
+      <version>${aws.java.sdk.version}</version>
+   </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-events</artifactId>
+      <version>${aws.java.sdk.version}</version>
+   </dependency>
 		</dependencies>
 	</dependencyManagement>
 
