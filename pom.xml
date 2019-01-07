@@ -84,10 +84,10 @@
 		
     <guava.version>23.5-jre</guava.version>
 
-		<jetty.version>9.4.8.v20171121</jetty.version>
+		<jetty.version>9.4.14.v20181114</jetty.version>
 		<mortbay.alpm.version>8.1.11.v20170118</mortbay.alpm.version>
 		
-		<jackson.version>2.9.4</jackson.version>
+		<jackson.version>2.9.8</jackson.version>
 
 		<commons.codec.version>1.10</commons.codec.version>
 
@@ -137,7 +137,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.0.1</version>
         </plugin>
 
 				<plugin>
