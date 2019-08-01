@@ -83,10 +83,11 @@
 		
     <guava.version>23.5-jre</guava.version>
 
-		<jetty.version>9.4.14.v20181114</jetty.version>
+		<jetty.version>9.4.19.v20190610</jetty.version>
 		<mortbay.alpm.version>8.1.11.v20170118</mortbay.alpm.version>
 		
-		<jackson.version>2.9.8</jackson.version>
+    <jackson.version>2.9.9</jackson.version>
+    <jackson-databind.version>2.9.9.1</jackson-databind.version>
 
 		<commons.codec.version>1.10</commons.codec.version>
 
@@ -309,7 +310,7 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>${jackson.version}</version>
+				<version>${jackson-databind.version}</version>
 			</dependency>
 
 			<dependency>
