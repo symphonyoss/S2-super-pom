@@ -40,8 +40,8 @@
 	</parent>
 	
   <groupId>org.symphonyoss.s2</groupId>
-	<artifactId>S2-super-pom</artifactId>
-	<version>0.2.4-SNAPSHOT</version>
+		<artifactId>S2-super-pom</artifactId>
+		<version>0.2.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<url>https://github.com/symphonyoss/S2-super-pom</url>
@@ -91,11 +91,11 @@
 
 		<commons.codec.version>1.10</commons.codec.version>
 
-		<log4j.version>2.11.0</log4j.version>
+		<log4j.version>2.12.1</log4j.version>
     <slf4j.version>1.7.25</slf4j.version>
 
-		<bcpkix.version>1.51</bcpkix.version>
-		<bcprov.version>1.51</bcprov.version>
+		<bcpkix.version>1.63</bcpkix.version>
+		<bcprov.version>1.63</bcprov.version>
 
 		<junit.version>4.12</junit.version>
 
@@ -110,6 +110,23 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+			
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <configuration>
+              <gpgArguments>
+                <arg>--batch</arg>
+                <arg>--armour</arg>
+                <arg>--digest-algo=SHA512</arg>
+                <arg>--local-user=oss@symphony.com</arg>
+                <arg>--detach-sign</arg>
+                <arg>--pinentry-mode=loopback</arg>
+              </gpgArguments>
+            </configuration>
+          </plugin>
+          
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -580,5 +597,6 @@
 	      </dependency>
 	   </dependencies>
 	 </profile>
+	 
 	</profiles>
 </project>
