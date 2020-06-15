@@ -81,7 +81,7 @@
     <aws.java.sdk.version>1.11.593</aws.java.sdk.version>
 		<protobuf.version>3.5.1</protobuf.version>
 		
-    <guava.version>23.5-jre</guava.version>
+    <guava.version>24.1.1-jre</guava.version>
 
 		<jetty.version>9.4.19.v20190610</jetty.version>
 		<mortbay.alpm.version>8.1.11.v20170118</mortbay.alpm.version>
