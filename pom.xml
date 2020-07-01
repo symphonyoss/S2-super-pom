@@ -91,7 +91,7 @@
 
 		<commons.codec.version>1.10</commons.codec.version>
 
-		<log4j.version>2.12.1</log4j.version>
+		<log4j.version>2.13.3</log4j.version>
     <slf4j.version>1.7.25</slf4j.version>
 
 		<bcpkix.version>1.63</bcpkix.version>
